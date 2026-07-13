@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>연합공연 세트리스트</title>
-    <!-- 락 느낌의 두꺼운 폰트(Black Han Sans)와 본문용 고딕체(Noto Sans KR) 함께 불러오기 -->
     <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         body {
@@ -75,14 +74,14 @@
         /* 메인 타이틀: 글자 잘림 방지 및 ROCK 스타일 유지 */
         h1.main-title {
             font-family: 'Black Han Sans', sans-serif; 
-            font-size: 2.4rem; /* 모바일에서 글자가 잘리지 않도록 크기 살짝 조정 */
+            font-size: 2.4rem; 
             color: #111; 
             margin: 0;
             line-height: 1.2; 
             letter-spacing: -1px; 
             transform: skewX(-8deg); 
-            word-break: keep-all; /* 단어 중간에 끊기지 않도록 방지 */
-            white-space: nowrap; /* 의도하지 않은 줄바꿈 방지 */
+            word-break: keep-all; 
+            white-space: nowrap; 
             text-shadow: 
                 -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff,
                 4px 4px 0px #001f3f, 5px 5px 0px #001f3f, 6px 6px 0px #001f3f; 
@@ -97,11 +96,23 @@
             margin-top: 25px; 
         }
 
+        /* 링크를 감싸는 a 태그 스타일 (이미지 클릭 시 테두리 생김 방지) */
+        .logo-container a {
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s; /* 클릭할 때 살짝 움직이는 애니메이션 준비 */
+        }
+        
+        /* 로고에 마우스를 올리거나 누를 때 살짝 커지는 효과 */
+        .logo-container a:active, .logo-container a:hover {
+            transform: scale(1.1);
+        }
+
         /* 개별 로고 스타일 */
         .band-logo {
             width: 60px; 
             height: 60px;
-            object-fit: cover; /* 👈 이 부분을 수정했습니다! 여백 없이 동그라미에 꽉 찹니다 */
+            object-fit: cover; 
             background-color: #fff; 
             border-radius: 50%; 
             border: 2px solid #001f3f; 
@@ -182,10 +193,21 @@
         </div>
 
         <div class="logo-container">
-            <img src="logo_vital.png" alt="바이탈사인" class="band-logo">
-            <img src="logo_live.png" alt="LIVE" class="band-logo">
-            <img src="logo_sorigol.png" alt="소리골" class="band-logo">
-            <img src="logo_meari.png" alt="메아리" class="band-logo">
+            <a href="https://www.instagram.com/pnu_vital_sign/" target="_blank">
+                <img src="logo_vital.png" alt="바이탈사인" class="band-logo">
+            </a>
+            
+            <a href="https://www.instagram.com/pnu_live/" target="_blank">
+                <img src="logo_live.png" alt="LIVE" class="band-logo">
+            </a>
+            
+            <a href="https://www.instagram.com/sorigol.official/" target="_blank">
+                <img src="logo_sorigol.png" alt="소리골" class="band-logo">
+            </a>
+            
+            <a href="https://www.instagram.com/gnu_meari_37/" target="_blank">
+                <img src="logo_meari.png" alt="메아리" class="band-logo">
+            </a>
         </div>
 
         <div class="scroll-indicator">▼ Scroll for Setlist ▼</div>
