@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>연합공연 세트리스트</title>
+    <!-- 락 느낌의 두꺼운 폰트(Black Han Sans)와 본문용 고딕체(Noto Sans KR) 함께 불러오기 -->
     <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         body {
@@ -39,26 +40,40 @@
             padding: 20px;
         }
 
-        /* 표지 엠블럼 박스 */
+        /* 표지 엠블럼 박스: 구겨진 종이 느낌으로 완벽 변신! */
         .cover-emblem {
-            border: 3px solid #001f3f; 
+            border: 2px solid #001f3f; 
             padding: 45px 20px;
             position: relative;
-            background-color: rgba(255, 255, 255, 0.93); 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15); 
+            background-color: rgba(255, 255, 255, 0.95); 
+            /* 구겨진 종이 느낌을 위한 노이즈 텍스처와 빛 반사 그라데이션 */
+            background-image: 
+                linear-gradient(135deg, rgba(0,0,0,0.04) 0%, transparent 20%, transparent 80%, rgba(0,0,0,0.04) 100%),
+                linear-gradient(45deg, rgba(255,255,255,0.8) 0%, transparent 40%, transparent 60%, rgba(255,255,255,0.8) 100%),
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+            /* 모서리가 살짝 불규칙한 종이 형태 */
+            border-radius: 2px 255px 3px 25px / 255px 5px 225px 3px;
+            /* 안쪽이 살짝 구겨져 들어간 듯한 내부 그림자 + 바깥 그림자 */
+            box-shadow: 
+                4px 8px 15px rgba(0,0,0,0.15), 
+                inset 2px 2px 5px rgba(255,255,255,1),
+                inset -3px -3px 15px rgba(0,0,0,0.06);
             text-align: center;
             max-width: 400px;
             width: 90%;
             box-sizing: border-box;
+            transform: rotate(-1.5deg); /* 살짝 삐뚤게 툭 붙인 느낌 */
         }
 
-        /* 엠블럼 안쪽 얇은 장식선 */
+        /* 엠블럼 안쪽 얇은 장식선: 손으로 그린 것처럼 살짝 어긋나게 */
         .cover-emblem::before {
             content: '';
             position: absolute;
-            top: 8px; left: 8px; right: 8px; bottom: 8px;
+            top: 8px; left: 6px; right: 10px; bottom: 8px;
             border: 1px solid #001f3f;
+            border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px; /* 약간 삐뚤빼뚤하게 */
             pointer-events: none;
+            opacity: 0.8;
         }
 
         /* 연합공연 서브타이틀 */
@@ -96,7 +111,7 @@
             margin-top: 25px; 
         }
 
-        /* 링크를 감싸는 a 태그 스타일 (이미지 클릭 시 테두리 생김 방지) */
+        /* 링크를 감싸는 a 태그 스타일 */
         .logo-container a {
             text-decoration: none;
             display: inline-block;
@@ -134,7 +149,7 @@
 
         /* 스크롤 유도 애니메이션 화살표 */
         .scroll-indicator {
-            margin-top: 45px; /* 👈 간격을 넓히기 위해 이 부분을 25px에서 45px로 수정했습니다! */
+            margin-top: 45px;
             font-size: 0.9rem;
             color: #001f3f;
             font-weight: 700;
