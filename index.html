@@ -10,26 +10,40 @@
         body {
             margin: 0;
             padding: 0;
-            background-image: url('background.png'); /* png 파일에 맞춤 */
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-color: #f4f4f4;
+            background-color: #f4f4f4; /* 배경 이미지 로딩 전 기본 색상 */
             font-family: 'Noto Sans KR', sans-serif; /* 전체 고딕체 적용 */
             display: flex;
             justify-content: center;
             color: #333;
+            min-height: 100vh; /* 화면 전체 높이 확보 */
         }
+
+        /* 모바일 배경화면 무한 확대 오류를 해결하는 마법의 코드 */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: url('background.png'); /* png 파일에 맞춤 */
+            background-size: cover;
+            background-position: center;
+            z-index: -1; /* 글자 맨 뒤로 배경 밀어내기 */
+        }
+
         .container {
-            /* 글씨가 잘 보이도록 반투명한 흰색 배경 (조금 더 선명하게 조정) */
+            /* 글씨가 잘 보이도록 반투명한 흰색 배경 */
             background-color: rgba(255, 255, 255, 0.85);
             max-width: 500px;
-            width: 90%;
-            margin: 40px 0;
-            padding: 30px;
+            width: 85%; /* 모바일에서 좌우 여백이 예쁘게 보이도록 90%에서 85%로 조정 */
+            margin: 5% auto; /* 폰 화면 상하 여백 조정 */
+            padding: 30px 20px; /* 폰 화면에 맞춰 내부 여백 살짝 조정 */
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            box-sizing: border-box; /* 패딩이 전체 너비에 포함되도록 설정 */
         }
+
         /* 메인 타이틀 스타일 */
         h1.main-title {
             text-align: center;
@@ -40,6 +54,7 @@
             margin-bottom: 30px;
             word-break: keep-all; /* 단어가 중간에 잘리지 않게 설정 */
         }
+
         /* 밴드 팀 이름 스타일 */
         h2 {
             color: #001f3f; /* 진하고 세련된 딥블루 색상 */
@@ -50,19 +65,23 @@
             margin-top: 35px;
             margin-bottom: 15px;
         }
+
         h2:first-of-type {
             margin-top: 0;
         }
+
         ul {
             list-style-type: none;
             padding: 0;
             margin: 0;
         }
+
         li {
             margin-bottom: 10px;
             font-size: 1rem;
             font-weight: 400;
             line-height: 1.5;
+            word-break: keep-all; /* 모바일에서 텍스트 줄바꿈 깔끔하게 */
         }
     </style>
 </head>
