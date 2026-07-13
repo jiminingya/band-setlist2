@@ -100,7 +100,7 @@
         .logo-container a {
             text-decoration: none;
             display: inline-block;
-            transition: transform 0.2s; /* 클릭할 때 살짝 움직이는 애니메이션 준비 */
+            transition: transform 0.2s; 
         }
         
         /* 로고에 마우스를 올리거나 누를 때 살짝 커지는 효과 */
@@ -119,9 +119,22 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
+        /* 인스타그램 연결 안내 문구 스타일 (새로 추가됨) */
+        .insta-notice {
+            margin-top: 12px;
+            font-size: 0.75rem;
+            color: #001f3f;
+            background-color: rgba(255, 255, 255, 0.85); /* 반투명 하얀색 배경 */
+            padding: 6px 16px;
+            border-radius: 20px; /* 둥근 캡슐 모양 */
+            font-weight: 700;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            letter-spacing: -0.5px;
+        }
+
         /* 스크롤 유도 애니메이션 화살표 */
         .scroll-indicator {
-            margin-top: 35px;
+            margin-top: 25px; /* 안내 문구가 추가되어 여백 살짝 줄임 */
             font-size: 0.9rem;
             color: #001f3f;
             font-weight: 700;
@@ -209,6 +222,8 @@
                 <img src="logo_meari.png" alt="메아리" class="band-logo">
             </a>
         </div>
+
+        <div class="insta-notice">로고를 누르면 인스타그램으로 연결됩니다 ☺︎</div>
 
         <div class="scroll-indicator">▼ Scroll for Setlist ▼</div>
     </div>
