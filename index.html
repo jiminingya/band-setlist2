@@ -72,16 +72,17 @@
             word-break: keep-all; 
         }
 
-        /* 메인 타이틀: 완전 ROCK 하게 변경! */
+        /* 메인 타이틀: 글자 잘림 방지 및 ROCK 스타일 유지 */
         h1.main-title {
-            font-family: 'Black Han Sans', sans-serif; /* 강렬하고 두꺼운 폰트 적용 */
-            font-size: 2.8rem; /* 크기를 더 키움 */
+            font-family: 'Black Han Sans', sans-serif; 
+            font-size: 2.4rem; /* 모바일에서 글자가 잘리지 않도록 크기 살짝 조정 */
             color: #111; 
             margin: 0;
-            line-height: 1.15; /* 줄 간격 조절 */
+            line-height: 1.2; 
             letter-spacing: -1px; 
-            transform: skewX(-8deg); /* 글자를 살짝 기울여서 스피드와 역동성 부여 */
-            /* 하얀색 얇은 테두리와 딥블루 색상의 묵직한 입체 그림자 효과 */
+            transform: skewX(-8deg); 
+            word-break: keep-all; /* 단어 중간에 끊기지 않도록 방지 */
+            white-space: nowrap; /* 의도하지 않은 줄바꿈 방지 */
             text-shadow: 
                 -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff,
                 4px 4px 0px #001f3f, 5px 5px 0px #001f3f, 6px 6px 0px #001f3f; 
@@ -173,11 +174,11 @@
     <div class="cover-section">
         <div class="cover-emblem">
             <div class="cover-subtitle">★부산대 · 해양대 · 경상대 연합공연★</div>
-            <!-- br 태그를 사용해 원하는 위치에서 강제로 줄을 바꿨습니다 -->
+            <!-- 줄바꿈(br) 위치를 요청하신 대로 수정했습니다 -->
             <h1 class="main-title">
-                교수님<br>
-                저희는 죽어도<br>
-                음악이 하고 싶어요
+                교수님 저희는<br>
+                죽어도 음악이<br>
+                하고 싶어요
             </h1>
         </div>
 
