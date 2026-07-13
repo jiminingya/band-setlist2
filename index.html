@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>연합공연 세트리스트</title>
-    <!-- 깔끔한 고딕체(Noto Sans KR) 웹 폰트 불러오기 -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         body {
@@ -62,12 +61,14 @@
             pointer-events: none;
         }
 
+        /* 연합공연 서브타이틀 (글자 수에 맞춰 조정) */
         .cover-subtitle {
-            font-size: 0.9rem;
+            font-size: 0.85rem; /* 늘어난 글자에 맞춰 크기 살짝 축소 */
             color: #001f3f;
-            letter-spacing: 4px;
+            letter-spacing: 1.5px; /* 자간 조정 */
             margin-bottom: 20px;
             font-weight: 700;
+            word-break: keep-all; /* 단어 단위로 깔끔하게 줄바꿈 */
         }
 
         /* 메인 타이틀 입체 효과 */
@@ -147,16 +148,14 @@
 </head>
 <body>
 
-    <!-- 1. 첫 화면에 보이는 표지 영역 -->
     <div class="cover-section">
         <div class="cover-emblem">
-            <div class="cover-subtitle">LIVE CONCERT</div>
+            <div class="cover-subtitle">부산대 · 해양대 · 경상대 연합공연</div>
             <h1 class="main-title">교수님 저희는 죽어도 음악이 하고 싶어요</h1>
         </div>
         <div class="scroll-indicator">▼ Scroll for Setlist ▼</div>
     </div>
 
-    <!-- 2. 스크롤하면 나오는 셋리스트 영역 -->
     <div class="container">
         <h2>&lt;부산대 바이탈사인&gt;</h2>
         <ul>
