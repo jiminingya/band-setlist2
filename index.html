@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>연합공연 세트리스트</title>
-    <!-- 락 느낌의 두꺼운 폰트(Black Han Sans)와 본문용 고딕체(Noto Sans KR) 함께 불러오기 -->
     <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         body {
@@ -16,7 +15,6 @@
             min-height: 100vh; 
         }
 
-        /* 배경화면 고정 */
         body::before {
             content: "";
             position: fixed;
@@ -30,7 +28,6 @@
             z-index: -1; 
         }
 
-        /* 1. 표지(Cover) 영역 스타일 */
         .cover-section {
             min-height: 85vh; 
             display: flex;
@@ -40,20 +37,16 @@
             padding: 20px;
         }
 
-        /* 표지 엠블럼 박스: 구겨진 종이 느낌으로 완벽 변신! */
         .cover-emblem {
             border: 2px solid #001f3f; 
             padding: 45px 20px;
             position: relative;
             background-color: rgba(255, 255, 255, 0.95); 
-            /* 구겨진 종이 느낌을 위한 노이즈 텍스처와 빛 반사 그라데이션 */
             background-image: 
                 linear-gradient(135deg, rgba(0,0,0,0.04) 0%, transparent 20%, transparent 80%, rgba(0,0,0,0.04) 100%),
                 linear-gradient(45deg, rgba(255,255,255,0.8) 0%, transparent 40%, transparent 60%, rgba(255,255,255,0.8) 100%),
                 url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
-            /* 모서리가 살짝 불규칙한 종이 형태 */
             border-radius: 2px 255px 3px 25px / 255px 5px 225px 3px;
-            /* 안쪽이 살짝 구겨져 들어간 듯한 내부 그림자 + 바깥 그림자 */
             box-shadow: 
                 4px 8px 15px rgba(0,0,0,0.15), 
                 inset 2px 2px 5px rgba(255,255,255,1),
@@ -62,21 +55,19 @@
             max-width: 400px;
             width: 90%;
             box-sizing: border-box;
-            transform: rotate(-1.5deg); /* 살짝 삐뚤게 툭 붙인 느낌 */
+            transform: rotate(-1.5deg);
         }
 
-        /* 엠블럼 안쪽 얇은 장식선: 손으로 그린 것처럼 살짝 어긋나게 */
         .cover-emblem::before {
             content: '';
             position: absolute;
             top: 8px; left: 6px; right: 10px; bottom: 8px;
             border: 1px solid #001f3f;
-            border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px; /* 약간 삐뚤빼뚤하게 */
+            border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px; 
             pointer-events: none;
             opacity: 0.8;
         }
 
-        /* 연합공연 서브타이틀 */
         .cover-subtitle {
             font-size: 0.85rem; 
             color: #001f3f;
@@ -86,7 +77,6 @@
             word-break: keep-all; 
         }
 
-        /* 메인 타이틀: 글자 잘림 방지 및 ROCK 스타일 유지 */
         h1.main-title {
             font-family: 'Black Han Sans', sans-serif; 
             font-size: 2.4rem; 
@@ -102,7 +92,6 @@
                 4px 4px 0px #001f3f, 5px 5px 0px #001f3f, 6px 6px 0px #001f3f; 
         }
 
-        /* 밴드 로고 정렬 영역 */
         .logo-container {
             display: flex;
             justify-content: center;
@@ -111,19 +100,16 @@
             margin-top: 25px; 
         }
 
-        /* 링크를 감싸는 a 태그 스타일 */
         .logo-container a {
             text-decoration: none;
             display: inline-block;
             transition: transform 0.2s; 
         }
         
-        /* 로고에 마우스를 올리거나 누를 때 살짝 커지는 효과 */
         .logo-container a:active, .logo-container a:hover {
             transform: scale(1.1);
         }
 
-        /* 개별 로고 스타일 */
         .band-logo {
             width: 60px; 
             height: 60px;
@@ -134,7 +120,6 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
-        /* 인스타그램 연결 안내 문구 스타일 */
         .insta-notice {
             margin-top: 12px;
             font-size: 0.75rem;
@@ -147,7 +132,6 @@
             letter-spacing: -0.5px;
         }
 
-        /* 스크롤 유도 애니메이션 화살표 */
         .scroll-indicator {
             margin-top: 45px;
             font-size: 0.9rem;
@@ -166,7 +150,6 @@
             60% { transform: translateY(-5px); }
         }
 
-        /* 2. 셋리스트 영역 스타일 */
         .container {
             background-color: rgba(255, 255, 255, 0.85);
             max-width: 500px;
@@ -178,7 +161,6 @@
             box-sizing: border-box; 
         }
 
-        /* 밴드 팀 이름 스타일 */
         h2 {
             color: #001f3f;
             font-size: 1.3rem;
@@ -283,7 +265,7 @@
 
         <h2>&lt;연합팀 앵콜&gt;</h2>
         <ul>
-            <li>비밀 앵콜곡 대기중!</li>
+            <li>비밀 앵콜곡 대기중!🤫</li>
         </ul>
     </div>
 
