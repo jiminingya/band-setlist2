@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>연합공연 세트리스트</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- 락 느낌의 두꺼운 폰트(Black Han Sans)와 본문용 고딕체(Noto Sans KR) 함께 불러오기 -->
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
@@ -44,8 +45,8 @@
             border: 3px solid #001f3f; 
             padding: 45px 20px;
             position: relative;
-            background-color: rgba(255, 255, 255, 0.93); /* 배경을 조금 더 불투명하게 */
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* 그림자도 더 부드럽고 자연스럽게 */
+            background-color: rgba(255, 255, 255, 0.93); 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15); 
             text-align: center;
             max-width: 400px;
             width: 90%;
@@ -71,21 +72,44 @@
             word-break: keep-all; 
         }
 
-        /* 메인 타이틀: 챗지피티 느낌 빼고 포스터 느낌으로! */
+        /* 메인 타이틀: 완전 ROCK 하게 변경! */
         h1.main-title {
-            font-size: 2.3rem; 
-            font-weight: 900;
-            color: #001f3f; /* 타이틀도 딥블루로 통일하여 세련되게 */
+            font-family: 'Black Han Sans', sans-serif; /* 강렬하고 두꺼운 폰트 적용 */
+            font-size: 2.8rem; /* 크기를 더 키움 */
+            color: #111; 
             margin: 0;
-            line-height: 1.35;
-            word-break: keep-all;
-            letter-spacing: -1.5px; /* 자간을 살짝 좁혀서 훨씬 쫀쫀하고 단단한 디자인 느낌 부여 */
-            /* 인위적인 3D 그림자 삭제 */
+            line-height: 1.15; /* 줄 간격 조절 */
+            letter-spacing: -1px; 
+            transform: skewX(-8deg); /* 글자를 살짝 기울여서 스피드와 역동성 부여 */
+            /* 하얀색 얇은 테두리와 딥블루 색상의 묵직한 입체 그림자 효과 */
+            text-shadow: 
+                -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff,
+                4px 4px 0px #001f3f, 5px 5px 0px #001f3f, 6px 6px 0px #001f3f; 
+        }
+
+        /* 밴드 로고 정렬 영역 */
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px; 
+            margin-top: 25px; 
+        }
+
+        /* 개별 로고 스타일 */
+        .band-logo {
+            width: 60px; 
+            height: 60px;
+            object-fit: contain; 
+            background-color: #fff; 
+            border-radius: 50%; 
+            border: 2px solid #001f3f; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
         /* 스크롤 유도 애니메이션 화살표 */
         .scroll-indicator {
-            margin-top: 40px;
+            margin-top: 35px;
             font-size: 0.9rem;
             color: #001f3f;
             font-weight: 700;
@@ -149,8 +173,21 @@
     <div class="cover-section">
         <div class="cover-emblem">
             <div class="cover-subtitle">★부산대 · 해양대 · 경상대 연합공연★</div>
-            <h1 class="main-title">교수님 저희는 죽어도 음악이 하고 싶어요</h1>
+            <!-- br 태그를 사용해 원하는 위치에서 강제로 줄을 바꿨습니다 -->
+            <h1 class="main-title">
+                교수님<br>
+                저희는 죽어도<br>
+                음악이 하고 싶어요
+            </h1>
         </div>
+
+        <div class="logo-container">
+            <img src="logo_vital.png" alt="바이탈사인" class="band-logo">
+            <img src="logo_live.png" alt="LIVE" class="band-logo">
+            <img src="logo_sorigol.png" alt="소리골" class="band-logo">
+            <img src="logo_meari.png" alt="메아리" class="band-logo">
+        </div>
+
         <div class="scroll-indicator">▼ Scroll for Setlist ▼</div>
     </div>
 
