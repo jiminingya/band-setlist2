@@ -37,23 +37,19 @@
             padding: 20px;
         }
 
-        /* 엠블럼: 마구 구겨졌다 펴진 종이 느낌 적용 */
+        /* 표지 엠블럼: 진짜 구겨진 종이 사진(crumpled.jpg) 적용 */
         .cover-emblem {
             border: 2px solid #001f3f; 
             padding: 45px 20px;
             position: relative;
-            background-color: #fcfcfc; 
+            background-color: #fff; 
+            /* 사진 위에 반투명 흰색 막을 씌워 글자가 잘 보이게 하고, 사진의 질감은 살립니다 */
             background-image: 
-                /* 날카로운 구김선들 */
-                linear-gradient(35deg, transparent 40%, rgba(0,0,0,0.06) 41%, rgba(255,255,255,0.9) 42%, transparent 43%),
-                linear-gradient(-45deg, transparent 65%, rgba(0,0,0,0.08) 66%, rgba(255,255,255,0.9) 67%, transparent 68%),
-                linear-gradient(15deg, transparent 25%, rgba(0,0,0,0.05) 26%, rgba(255,255,255,0.7) 27%, transparent 28%),
-                linear-gradient(-80deg, transparent 80%, rgba(0,0,0,0.09) 81%, rgba(255,255,255,0.8) 82%, transparent 83%),
-                /* 전체적인 굴곡과 음영 */
-                radial-gradient(circle at 30% 20%, rgba(0,0,0,0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 90%, rgba(255,255,255,1) 0%, transparent 60%),
-                /* 거친 질감 노이즈 */
-                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.12'/%3E%3C/svg%3E");
+                linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.65)),
+                url('crumpled.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: multiply; /* 질감을 극대화하는 마법의 속성 */
             border-radius: 2px 255px 3px 25px / 255px 5px 225px 3px;
             box-shadow: 
                 4px 8px 15px rgba(0,0,0,0.15), 
@@ -158,17 +154,15 @@
             60% { transform: translateY(-5px); }
         }
 
-        /* 셋리스트 배경: 마구 구겨졌다 펴진 종이 느낌 적용 */
+        /* 셋리스트 배경: 진짜 구겨진 종이 사진(crumpled.jpg) 적용 */
         .container {
-            background-color: #fcfcfc;
+            background-color: #fff;
             background-image: 
-                linear-gradient(35deg, transparent 40%, rgba(0,0,0,0.06) 41%, rgba(255,255,255,0.9) 42%, transparent 43%),
-                linear-gradient(-45deg, transparent 65%, rgba(0,0,0,0.08) 66%, rgba(255,255,255,0.9) 67%, transparent 68%),
-                linear-gradient(15deg, transparent 25%, rgba(0,0,0,0.05) 26%, rgba(255,255,255,0.7) 27%, transparent 28%),
-                linear-gradient(-80deg, transparent 80%, rgba(0,0,0,0.09) 81%, rgba(255,255,255,0.8) 82%, transparent 83%),
-                radial-gradient(circle at 30% 20%, rgba(0,0,0,0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 90%, rgba(255,255,255,1) 0%, transparent 60%),
-                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.12'/%3E%3C/svg%3E");
+                linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), /* 투명도 조절로 글자 가독성 확보 */
+                url('crumpled.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: multiply;
             border-radius: 5px 225px 8px 25px / 225px 8px 255px 5px; 
             box-shadow: 
                 4px 8px 15px rgba(0,0,0,0.15), 
@@ -202,18 +196,16 @@
             z-index: 1;
         }
 
-        /* 진짜 수제 형광펜 느낌: 삐뚤빼뚤하고 번진 마커 효과 */
+        /* 삐뚤빼뚤 수제 형광펜 유지 */
         .highlight::after {
             content: '';
             position: absolute;
             left: -4px; 
-            right: -8px; /* 오른쪽으로 펜이 조금 더 삐져나감 */
+            right: -8px; 
             bottom: 3px; 
             height: 60%; 
             z-index: -1; 
-            /* 마커 끝이 일정하지 않고 뭉툭한 느낌 (비대칭 곡률) */
             border-radius: 8px 3px 9px 4px / 4px 10px 3px 8px;
-            /* 손으로 그은 것처럼 살짝 기울고 각도가 엇나간 효과 */
             transform: rotate(-1.5deg) skewX(-12deg);
         }
  
