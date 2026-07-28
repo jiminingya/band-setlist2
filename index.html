@@ -37,19 +37,19 @@
             padding: 20px;
         }
 
-        /* 표지 엠블럼: 진짜 구겨진 종이 사진(crumpled.jpg) 적용 */
+        /* 표지 엠블럼: 구겨진 종이 사진 적용 */
         .cover-emblem {
             border: 2px solid #001f3f; 
             padding: 45px 20px;
             position: relative;
             background-color: #fff; 
-            /* 사진 위에 반투명 흰색 막을 씌워 글자가 잘 보이게 하고, 사진의 질감은 살립니다 */
+            /* 하얀 막을 0.65 -> 0.5로 낮춰서 구김이 더 잘 보이게 조정 */
             background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.65)),
+                linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
                 url('crumpled.jpg'); 
-            background-size: cover;
+            background-size: 100% 100%; /* 👈 확대되지 않고 박스에 딱 맞게 구김이 다 들어오도록 수정! */
             background-position: center;
-            background-blend-mode: multiply; /* 질감을 극대화하는 마법의 속성 */
+            background-blend-mode: multiply; 
             border-radius: 2px 255px 3px 25px / 255px 5px 225px 3px;
             box-shadow: 
                 4px 8px 15px rgba(0,0,0,0.15), 
@@ -154,13 +154,14 @@
             60% { transform: translateY(-5px); }
         }
 
-        /* 셋리스트 배경: 진짜 구겨진 종이 사진(crumpled.jpg) 적용 */
+        /* 셋리스트 배경: 구겨진 종이 사진 적용 */
         .container {
             background-color: #fff;
+            /* 하얀 막을 0.75 -> 0.65로 낮춰서 구김 텍스처를 더 선명하게! */
             background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), /* 투명도 조절로 글자 가독성 확보 */
+                linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.65)), 
                 url('crumpled.jpg'); 
-            background-size: cover;
+            background-size: 100% 100%; /* 👈 역시 폰에서도 확대되지 않도록 수정! */
             background-position: center;
             background-blend-mode: multiply;
             border-radius: 5px 225px 8px 25px / 225px 8px 255px 5px; 
