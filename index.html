@@ -134,7 +134,6 @@
             letter-spacing: -0.5px;
         }
 
-        /* 📍 오시는 길 버튼 스타일 */
         .map-btn {
             display: inline-block;
             margin-top: 20px;
@@ -149,6 +148,7 @@
             font-size: 0.95rem;
             letter-spacing: 0.5px;
             border: 2px solid #001f3f;
+            cursor: pointer;
         }
 
         .map-btn:active, .map-btn:hover {
@@ -247,6 +247,62 @@
             line-height: 1.5;
             word-break: keep-all;
         }
+
+        /* 🗺️ 지도 팝업(모달) 스타일 */
+        .modal-overlay {
+            display: none; 
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.7); 
+            z-index: 9999; 
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 80vh;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+            animation: popIn 0.3s ease-out; 
+        }
+
+        @keyframes popIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .map-image {
+            max-width: 100%;
+            max-height: 70vh; 
+            display: block;
+            border-radius: 5px;
+        }
+
+        /* 닫기(X) 버튼 스타일 */
+        .close-btn {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background-color: #001f3f;
+            color: #fff;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            border: 2px solid #fff;
+        }
     </style>
 </head>
 <body>
@@ -281,8 +337,8 @@
 
         <div class="insta-notice">로고를 누르면 인스타그램으로 연결됩니다 ☺︎</div>
 
-        <!-- 📍 오시는 길 버튼 위치 이동 (인스타 안내 문구 아래로!) -->
-        <a href="https://www.google.com/maps/place/바이널언더그라운드/data=!4m2!3m1!1s0x3568ecf07deeb62b:0xd68b463978323cee?sa=X&ved=1t:242&ictx=111" target="_blank" class="map-btn">📍 공연장 오시는 길</a>
+        <!-- 📍 오시는 길 버튼 -->
+        <a href="#" class="map-btn" onclick="openMapModal(event)">📍 공연장 오시는 길</a>
 
         <div class="scroll-indicator">▼ Scroll for Setlist ▼</div>
     </div>
@@ -297,7 +353,7 @@
         <ul>
             <li>LUCY - 개화</li>
             <li>윤하 - 비밀번호 486</li>
-            <li>최정훈x로이킴 - 대화가 필요해</li>
+            <li>최정훈x이찬혁 - 대화가 필요해</li>
             <li>고추잠자리 - 너라는 별</li>
             <li>검정치마 - Ling Ling</li>
         </ul>
@@ -330,6 +386,29 @@
             <li>비밀 앵콜곡 대기중!🤫</li>
         </ul>
     </div>
+
+    <!-- 🗺️ 지도 팝업창(모달) HTML 구조 -->
+    <div id="mapModal" class="modal-overlay" onclick="closeMapModal(event)">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeMapModal(event)">&times;</span>
+            <!-- 🚨 수정 완료: map.jpg를 map.png로 변경했습니다! -->
+            <img src="map.png" alt="공연장 지도" class="map-image">
+        </div>
+    </div>
+
+    <!-- ⚙️ 팝업창을 열고 닫는 자바스크립트 기능 -->
+    <script>
+        function openMapModal(e) {
+            e.preventDefault(); 
+            document.getElementById('mapModal').style.display = 'flex'; 
+        }
+
+        function closeMapModal(e) {
+            if (e.target.id === 'mapModal' || e.target.classList.contains('close-btn')) {
+                document.getElementById('mapModal').style.display = 'none';
+            }
+        }
+    </script>
 
 </body>
 </html>
