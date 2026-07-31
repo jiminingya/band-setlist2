@@ -37,7 +37,6 @@
             padding: 20px;
         }
 
-   
         .cover-emblem {
             border: 2px solid #001f3f; 
             padding: 45px 20px;
@@ -123,6 +122,29 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
+        /* 📍 오시는 길 버튼 스타일 추가 */
+        .map-btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 10px 24px;
+            background-color: #001f3f;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 900;
+            border-radius: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            transition: transform 0.2s, background-color 0.2s;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            border: 2px solid #001f3f;
+        }
+
+        .map-btn:active, .map-btn:hover {
+            transform: scale(1.05);
+            background-color: #fff;
+            color: #001f3f;
+        }
+
         .insta-notice {
             margin-top: 12px;
             font-size: 0.75rem;
@@ -152,7 +174,6 @@
             40% { transform: translateY(-10px); }
             60% { transform: translateY(-5px); }
         }
-
 
         .container {
             background-color: #fff;
@@ -195,7 +216,6 @@
             z-index: 1;
         }
 
- 
         .highlight::after {
             content: '';
             position: absolute;
@@ -258,6 +278,9 @@
                 <img src="logo_vital.png" alt="바이탈사인" class="band-logo">
             </a>
         </div>
+
+        <!-- 새로 추가된 오시는 길 버튼 -->
+        <a href="https://www.google.com/maps/place/바이널언더그라운드/data=!4m2!3m1!1s0x3568ecf07deeb62b:0xd68b463978323cee?sa=X&ved=1t:242&ictx=111" target="_blank" class="map-btn">📍 공연장 오시는 길</a>
 
         <div class="insta-notice">로고를 누르면 인스타그램으로 연결됩니다 ☺︎</div>
 
