@@ -196,6 +196,41 @@
             box-sizing: border-box; 
         }
 
+        /* 1부, 2부 구분선 스타일 */
+        .part-divider {
+            text-align: center;
+            font-size: 1.5rem;
+            font-family: 'Black Han Sans', sans-serif;
+            color: #001f3f;
+            margin: 40px 0 20px 0;
+            letter-spacing: 2px;
+        }
+
+        .part-divider::before, .part-divider::after {
+            content: '';
+            display: inline-block;
+            width: 40px;
+            height: 3px;
+            background-color: #001f3f;
+            vertical-align: middle;
+            margin: 0 15px;
+            border-radius: 2px;
+        }
+
+        /* 인터미션 스타일 */
+        .intermission {
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #666;
+            margin: 40px 0;
+            letter-spacing: 2px;
+            border-top: 2px dashed #bbb;
+            border-bottom: 2px dashed #bbb;
+            padding: 12px 0;
+            font-style: italic;
+        }
+
         h2 {
             color: #000; 
             font-size: 1.3rem;
@@ -248,7 +283,7 @@
             word-break: keep-all;
         }
 
-       
+        
         .modal-overlay {
             display: none; 
             position: fixed;
@@ -337,7 +372,6 @@
 
         <div class="insta-notice">로고를 누르면 인스타그램으로 연결됩니다 ☺︎</div>
 
-
         <a href="#" class="map-btn" onclick="openMapModal(event)">📍 공연장 오시는 길</a>
 
         <div class="scroll-indicator">▼ Scroll for Setlist ▼</div>
@@ -348,6 +382,9 @@
         <ul>
             <li>10CM - Nothing‘s Going On</li>
         </ul>
+
+        <!-- 1부 시작 표시 -->
+        <div class="part-divider">★ 1부 ★</div>
 
         <h2><span class="highlight hl-brown">&lt;경상대 메아리&gt;</span></h2>
         <ul>
@@ -364,6 +401,12 @@
             <li>잔나비 - See Your Eyes</li>
             <li>이승윤 - 폭죽타임</li>
         </ul>
+
+        <!-- 인터미션 표시 -->
+        <div class="intermission">~ intermission ~</div>
+
+        <!-- 2부 시작 표시 -->
+        <div class="part-divider">★ 2부 ★</div>
 
         <h2><span class="highlight hl-blue">&lt;부산대 LIVE&gt;</span></h2>
         <ul>
