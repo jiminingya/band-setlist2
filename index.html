@@ -205,6 +205,11 @@
             margin: 40px 0 20px 0;
             letter-spacing: 2px;
         }
+        
+        /* 첫 번째 구분선(1부)은 위쪽 여백을 조금 줄여줍니다 */
+        .part-divider:first-child {
+            margin-top: 10px;
+        }
 
         .part-divider::before, .part-divider::after {
             content: '';
@@ -283,7 +288,6 @@
             word-break: keep-all;
         }
 
-        
         .modal-overlay {
             display: none; 
             position: fixed;
@@ -320,7 +324,6 @@
             border-radius: 5px;
         }
 
- 
         .close-btn {
             position: absolute;
             top: -15px;
@@ -378,13 +381,13 @@
     </div>
 
     <div class="container">
+        <!-- 1부 시작 표시를 맨 처음으로 올렸습니다 -->
+        <div class="part-divider">★ 1부 ★</div>
+
         <h2><span class="highlight hl-rainbow">&lt;연합팀 오프닝&gt;</span></h2>
         <ul>
             <li>10CM - Nothing‘s Going On</li>
         </ul>
-
-        <!-- 1부 시작 표시 -->
-        <div class="part-divider">★ 1부 ★</div>
 
         <h2><span class="highlight hl-brown">&lt;경상대 메아리&gt;</span></h2>
         <ul>
